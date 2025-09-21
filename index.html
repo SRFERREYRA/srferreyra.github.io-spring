@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Happy Spring!</title>
   <style>
     body {
@@ -9,61 +10,62 @@
       text-align: center;
       background: #e0f7fa;
       margin: 0;
-      padding: 50px;
+      padding: 5vw;
     }
 
     h1 {
       color: #2e7d32;
-      font-size: 3em;
+      font-size: clamp(2em, 6vw, 3em);
       margin-bottom: 10px;
     }
 
     p {
-      font-size: 1.2em;
-      margin: 20px 0;
+      font-size: clamp(1em, 3.5vw, 1.2em);
+      margin: 15px 0;
       color: #444;
     }
 
     .flower {
-      width: 120px;
-      height: 120px;
+      width: 25vw;
+      height: 25vw;
+      max-width: 150px;
+      max-height: 150px;
       margin: 20px auto;
       position: relative;
     }
 
     .petal {
-      width: 60px;
-      height: 60px;
+      width: 50%;
+      height: 50%;
       background: yellow;
       border-radius: 50%;
       position: absolute;
-      top: 30px;
-      left: 30px;
+      top: 25%;
+      left: 25%;
       transform-origin: center;
     }
 
-    /* 6 pétalos girados */
-    .petal:nth-child(1) { transform: rotate(0deg) translateX(40px); }
-    .petal:nth-child(2) { transform: rotate(60deg) translateX(40px); }
-    .petal:nth-child(3) { transform: rotate(120deg) translateX(40px); }
-    .petal:nth-child(4) { transform: rotate(180deg) translateX(40px); }
-    .petal:nth-child(5) { transform: rotate(240deg) translateX(40px); }
-    .petal:nth-child(6) { transform: rotate(300deg) translateX(40px); }
+    .petal:nth-child(1) { transform: rotate(0deg) translateX(40%); }
+    .petal:nth-child(2) { transform: rotate(60deg) translateX(40%); }
+    .petal:nth-child(3) { transform: rotate(120deg) translateX(40%); }
+    .petal:nth-child(4) { transform: rotate(180deg) translateX(40%); }
+    .petal:nth-child(5) { transform: rotate(240deg) translateX(40%); }
+    .petal:nth-child(6) { transform: rotate(300deg) translateX(40%); }
 
     .center {
-      width: 50px;
-      height: 50px;
+      width: 35%;
+      height: 35%;
       background: orange;
       border-radius: 50%;
       position: absolute;
-      top: 35px;
-      left: 35px;
+      top: 32%;
+      left: 32%;
     }
 
     button {
       margin-top: 30px;
       padding: 10px 20px;
-      font-size: 16px;
+      font-size: clamp(14px, 3.5vw, 18px);
       background: #ffeb3b;
       border: none;
       border-radius: 10px;
@@ -75,14 +77,24 @@
       transform: scale(1.1);
     }
 
-    /* Animación */
     .animate {
       animation: bounce 1s infinite alternate;
     }
 
     @keyframes bounce {
       0% { transform: translateY(0) rotate(0deg); }
-      100% { transform: translateY(-20px) rotate(20deg); }
+      100% { transform: translateY(-10px) rotate(15deg); }
+    }
+
+    /* Ajustes extra para pantallas muy pequeñas */
+    @media (max-width: 400px) {
+      body {
+        padding: 20px;
+      }
+      .flower {
+        width: 40vw;
+        height: 40vw;
+      }
     }
   </style>
 </head>
